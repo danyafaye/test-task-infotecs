@@ -1,10 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 table {
     width: 50%;
     table-layout: fixed;
     border-collapse: collapse;
     border: 3px solid black;
+    margin-left: 10px;
+    margin-bottom: 20px;
 }
-th, td{
-    padding: 10px;
+th{
+    cursor: pointer;
+}
+.table_first_name,
+.table_last_name,
+.table_eye_color{
+    width: 15%;
+
+}
+._col{
+    padding: 10px 0;
     border: 1px ridge black;
+    text-align: center;
 }
