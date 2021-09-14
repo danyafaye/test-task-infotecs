@@ -1,5 +1,6 @@
 const aboutInfo = document.querySelector('.table_about')
-const name = document.querySelector('.table_first_name')
+const tableTh = document.querySelectorAll('th')
+const tableBody = document.querySelector('tbody')
 
 //ответ на запрос json массива
 fetch('./src/data.json')
@@ -11,6 +12,7 @@ fetch('./src/data.json')
     })
 
 //функция для заполнения таблицы нужными данными
+//about/4 для вывода примерно двух строк
 let fillTable = (data) => {
     const aboutInfoLength = aboutInfo.clientWidth
     for (let i = 0; i < data.length; i++) {
@@ -19,10 +21,20 @@ let fillTable = (data) => {
             <td class="table_last_name _col">${data[i].name.lastName}</td>
             <td class="table_about _col">${data[i].about.slice(0, (aboutInfoLength / 4)) + '...'}</td>
             <td class="table_eye_color _col">${data[i].eyeColor}</td>`
-        let myTb = document.getElementById('bodyOfTable')
+        let myTb = document.querySelector('tbody')
         myTb.appendChild(myTr)
     }
 }
 
-name.addEventListener('click', () => {
+//функция для сортировки таблицы index - колонка, которую требуется отсортировать
+let sortTable = (index) => {
+    let sortedRows = Array.from(tableBody.rows)
+        .sort((rowA, rowB) => rowA.cells[index].innerHTML > rowB.cells[index].innerHTML ? 1 : -1);
+
+    tableBody.append(...sortedRows);
+}
+
+//наложение события на заголовки с сортировкой отдельной колонки
+tableTh.forEach((th,i)=>{
+    th.addEventListener('click', () => (sortTable(i)))
 })

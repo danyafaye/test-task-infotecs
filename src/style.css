@@ -10,6 +10,8 @@ table {
     border: 3px solid black;
     margin-left: 10px;
     margin-bottom: 20px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
 }
 th{
     cursor: pointer;
