@@ -27,15 +27,7 @@ th{
     border: 1px ridge black;
     text-align: center;
 }
-i{
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
-.down{
-    transform: rotate(45deg);
-}
+
 .hidden{
     display: none;
 }
