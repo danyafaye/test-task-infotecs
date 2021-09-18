@@ -55,3 +55,23 @@ th.selected[data-index = '1']::after{
     padding: 16px 0;
     font-size: 0px;
 }
+.bttn_hidden{
+    padding: 5px;
+    margin: 10px 5px 10px 10px;
+}
+._hidden1 tr th:nth-child(1),
+._hidden1 .table_rows td:nth-child(1){
+    display: none;
+}
+._hidden2 tr th:nth-child(2),
+._hidden2 .table_rows td:nth-child(2){
+    display: none;
+}
+._hidden3 tr th:nth-child(3),
+._hidden3 .table_rows td:nth-child(3){
+    display: none;
+}
+._hidden4 tr th:nth-child(4),
+._hidden4 .table_rows td:nth-child(4){
+    display: none;
+}

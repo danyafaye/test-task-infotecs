@@ -1,4 +1,6 @@
+//константы, которые используются более 1 раза сделаны глобальными
 const tableTh = document.querySelectorAll('th'),
+    table = document.querySelector('table'),
     tableBody = document.querySelector('tbody')
 //функция для заполнения таблицы нужными данными
 //about/4 для вывода примерно двух строк
@@ -59,8 +61,7 @@ let checkIfSelectedTh = (index) => {
 
 //функция для редактирования таблицы
 let editTable = () => {
-    const table = document.querySelector('table'),
-        form = document.querySelector('.form_wrapper'),
+    const form = document.querySelector('.form_wrapper'),
         input = document.querySelectorAll('input'),
         textArea = document.querySelector('textarea'),
         editButton = document.querySelector('.div_bttn_edit'),
@@ -107,6 +108,8 @@ let editTable = () => {
     closeButton.addEventListener('click', () => form.style = '')
 }
 
+//функция для смены надписи с цветом глаз на цветной блок - создается див, в который передается значение,
+//после, значение ячейки с цветом зануляется и в неё аппендится див, далее - диву передается css свойство background-color
 let setEyeColor = (td) => {
     const eyeColor = document.createElement('div')
     eyeColor.className = 'colored_eye'
@@ -114,6 +117,23 @@ let setEyeColor = (td) => {
     td.innerHTML = ''
     td.append(eyeColor)
     td.firstChild.style.cssText = `background-color: ${td.firstChild.innerHTML}`
+}
+//функция для скрытия колонки
+let hideColumn = () => {
+    const hideButtons = document.querySelectorAll('.bttn_hidden')
+    hideButtons.forEach((item,n)=>{
+        item.addEventListener('click', ()=>{
+            if(item.dataset.hidden === 'off'){
+                item.setAttribute('data-hidden', 'on')
+                item.innerHTML = 'Показать колонку ' + tableTh[n].textContent
+                table.classList.add(`_hidden${n+1}`)
+            } else if(item.dataset.hidden === 'on'){
+                item.setAttribute('data-hidden', 'off')
+                item.textContent = 'Скрыть колонку ' + tableTh[n].textContent
+                table.classList.remove(`_hidden${n+1}`)
+            }
+        })
+    })
 }
 
 //ответ на запрос json массива
@@ -125,4 +145,5 @@ fetch('./src/data.json')
         fillTable(data)
         sortTable()
         editTable()
+        hideColumn()
     })
