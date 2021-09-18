@@ -1,5 +1,5 @@
 const tableTh = document.querySelectorAll('th'),
-tableBody = document.querySelector('tbody')
+    tableBody = document.querySelector('tbody')
 //функция для заполнения таблицы нужными данными
 //about/4 для вывода примерно двух строк
 let fillTable = (jsonData) => {
@@ -17,6 +17,8 @@ let fillTable = (jsonData) => {
             <td class="table_about _col">${el.about.slice(0, (aboutInfoLength / 4)) + '...'}</td>
             <td class="table_eye_color _col">${el.eyeColor}</td>`
         tableBody.appendChild(myTr)
+        const td = myTr.querySelector('.table_eye_color')
+        setEyeColor(td)
     })
 }
 
@@ -96,13 +98,22 @@ let editTable = () => {
         localStorage.setItem('jsonData', JSON.stringify(jsonData));
         form.style = '';
         fillTable(jsonData);
-        tableTh.forEach((th)=>{
-            if(th.classList.contains('selected'))
+        tableTh.forEach((th) => {
+            if (th.classList.contains('selected'))
                 th.classList.toggle('selected')
         })
     })
     //событие для закрытия окна формы
     closeButton.addEventListener('click', () => form.style = '')
+}
+
+let setEyeColor = (td) => {
+    const eyeColor = document.createElement('div')
+    eyeColor.className = 'colored_eye'
+    eyeColor.innerHTML = td.innerHTML
+    td.innerHTML = ''
+    td.append(eyeColor)
+    td.firstChild.style.cssText = `background-color: ${td.firstChild.innerHTML}`
 }
 
 //ответ на запрос json массива

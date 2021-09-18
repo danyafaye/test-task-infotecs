@@ -50,3 +50,9 @@ th.selected[data-index = '1']::after{
     float: right;
     width: 40%;
 }
+.colored_eye{
+    position: relative;
+    margin: 0 10px;
+    padding: 20px 0;
+    font-size: 0px;
+}
