@@ -28,8 +28,7 @@ Additional goals:
 
 ●	Добавить возможность показа/скрытия колонок; ✘
 
-●	В колонке “eyeColor” предоставлять данные в виде цвета, сохраняя возможность сортировки по значению. ✘
+●	В колонке “eyeColor” предоставлять данные в виде цвета, сохраняя возможность сортировки по значению. ✓
 
-✓/✘
 # What was used in this project: 
 Fetch API for accessing JSON, LocalStorage, BEM methodology for classnames, vanilla JS, HTML, CSS, github pages 
