@@ -95,6 +95,10 @@ let editTable = () => {
         localStorage.setItem('jsonData', JSON.stringify(jsonData));
         form.style = '';
         fillTable(jsonData);
+        tableTh.forEach((th)=>{
+            if(th.classList.contains('selected'))
+                th.classList.toggle('selected')
+        })
     })
     //событие для закрытия окна формы
     closeButton.addEventListener('click', () => form.style = '')
