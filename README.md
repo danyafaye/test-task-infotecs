@@ -1,4 +1,4 @@
-#About project
+# About project
 
 Test task from infotecs. You can view it here: https://danyafaye.github.io/test-task-infotecs/
 
@@ -31,5 +31,5 @@ Additional goals:
 ●	В колонке “eyeColor” предоставлять данные в виде цвета, сохраняя возможность сортировки по значению. ✘
 
 ✓/✘
-#What was used in this project: 
+# What was used in this project: 
 Fetch API for accessing JSON, LocalStorage, BEM methodology for classnames, vanilla JS, HTML, CSS, github pages 
