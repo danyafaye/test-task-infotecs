@@ -67,6 +67,7 @@ let editTable = () => {
     //вызов формы и передача данных в нее
     table.addEventListener('click', (event) => {
         const row = event.target.closest('.table_rows')
+        if (!row) return;
         dataRow = row;
         form.style.cssText = `display: block;  top: ${row.offsetTop}px; left: ${row.offsetWidth + 20}px;`;
         input[0].value = row.cells[0].innerHTML
