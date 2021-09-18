@@ -75,7 +75,7 @@ let editTable = () => {
         input[0].value = row.cells[0].innerHTML
         input[1].value = row.cells[1].innerHTML
         textArea.value = row.cells[2].innerHTML.slice(0, row.cells[2].innerHTML.length - 3);
-        input[2].value = row.cells[3].innerHTML
+        input[2].value = row.cells[3].firstChild.innerHTML
     })
     //событие для внесения изменений в json файл при клике на кнопку редактирования
     editButton.addEventListener('click', () => {
